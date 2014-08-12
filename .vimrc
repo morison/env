@@ -6,7 +6,7 @@ syntax on
 set nohlsearch " 検索キーワードをハイライトしないように設定
 
 " シンタックスハイライト有効化 (背景黒向け。白はコメントアウト
-highlight Normal ctermbg=black ctermfg=grey
+"highlight Normal ctermbg=black ctermfg=grey
 "highlight StatusLine term=none cterm=none ctermfg=black ctermbg=grey
 "highlight CursorLine term=none cterm=none ctermfg=none ctermbg=darkgray
 "highlight Normal ctermbg=grey ctermfg=black
@@ -63,7 +63,7 @@ autocmd FileType * setlocal formatoptions-=ro
 " 使いたいプラグインのリポジトリを羅列。Subversion とか Mercurial でもいけるらしい。
 NeoBundle 'git://github.com/Shougo/neocomplcache.git'
 NeoBundle 'git://github.com/Shougo/vimshell.vim'
-NeoBundle 'git://github.com/Shougo/vimproc.vim'
+"NeoBundle 'git://github.com/Shougo/vimproc.vim'
 "NeoBundle 'git://github.com/Shougo/neobundle.vim.git'
 "NeoBundle 'git://github.com/Shougo/unite.vim.git'
 "NeoBundle 'git://github.com/mattn/zencoding-vim.git'
@@ -91,6 +91,7 @@ let g:neocomplcache_dictionary_filetype_lists = {
     \ 'default' : '',
     \ 'vimshell' : $HOME.'/.vimshell_hist',
     \ 'perl' : $HOME.'/.vim/bundle/perl-support.vim/perl-support/wordlists/perl.list',
+    \ 'ruby' : $HOME.'/.vim/dict/opscode_chef.dict/*.dict',
     \ 'scheme' : $HOME.'/.gosh_completions'
         \ }
 
@@ -119,9 +120,13 @@ inoremap <expr><BS> neocomplcache#smart_close_popup()."\<C-h>"
 inoremap <expr><C-y>  neocomplcache#close_popup()
 inoremap <expr><C-e>  neocomplcache#cancel_popup()
 
+" load_or remove chef_dict
+"command ChefDicAdd set dictionary+=~/.vim/dict/opscode_chef.dict/*.dict
+"command ChefDicRem set dictionary-=~/.vim/dict/opscode_chef.dict/*.dict
 
-
-
-
-
-
+" vim-chef
+NeoBundle "git://github.com/MarcWeber/vim-addon-mw-utils.git"
+NeoBundle "git://github.com/tomtom/tlib_vim.git"
+NeoBundle "git://github.com/garbas/vim-snipmate.git"
+NeoBundle "git://github.com/vadv/vim-chef.git"
+autocmd FileType ruby,eruby set filetype=ruby.eruby.chef
