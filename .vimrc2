@@ -1,0 +1,120 @@
+set nocompatible
+filetype indent plugin on
+syntax on
+
+set hidden
+set wildmenu
+set showcmd
+set hlsearch
+set ignorecase
+set smartcase
+set backspace=indent,eol,start
+set autoindent
+set nostartofline
+set ruler
+set laststatus=2
+set statusline=%F%r,%l,%c,%p%=
+set confirm
+set visualbell
+set t_vb=
+set mouse=a
+set cmdheight=2
+set number
+set notimeout ttimeout ttimeoutlen=200
+set pastetoggle=<F11>
+
+set shiftwidth=2
+set softtabstop=2
+set expandtab
+
+map Y y$
+
+nnoremap <C-L> :nohl<CR><C-L>
+
+if has('vim_starting')
+  set runtimepath+=~/.vim/bundle/neobundle.vim/
+  call neobundle#rc(expand('~/.vim/bundle'))
+endif
+
+"""""""""""""""""""""
+"" neocomplcache
+"""""""""""""""""""""
+NeoBundle 'git://github.com/Shougo/neocomplcache.git'
+" Disable AutoComplPop.
+let g:acp_enableAtStartup = 0
+" " Use neocomplcache.
+let g:neocomplcache_enable_at_startup = 1
+" Use smartcase.
+let g:neocomplcache_enable_smart_case = 1
+" Set minimum syntax keyword length.
+let g:neocomplcache_min_syntax_length = 3
+let g:neocomplcache_lock_buffer_name_pattern = '\*ku\*'
+
+" Define dictionary.
+let g:neocomplcache_dictionary_filetype_lists = {
+    \ 'default' : '',
+    \ 'vimshell' : $HOME.'/.vimshell_hist',
+    \ 'perl' : $HOME.'/.vim/bundle/perl-support.vim/perl-support/wordlists/perl.list',
+    \ 'ruby' : $HOME.'/.vim/dict/opscode_chef.dict/*.dict',
+    \ 'scheme' : $HOME.'/.gosh_completions'
+        \ }
+
+" Define keyword.
+if !exists('g:neocomplcache_keyword_patterns')
+    let g:neocomplcache_keyword_patterns = {}
+endif
+let g:neocomplcache_keyword_patterns['default'] = '\h\w*'
+
+" Plugin key-mappings.
+inoremap <expr><C-g>     neocomplcache#undo_completion()
+inoremap <expr><C-l>     neocomplcache#complete_common_string()
+
+" Recommended key-mappings.
+" <CR>: close popup and save indent.
+inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
+function! s:my_cr_function()
+    return neocomplcache#smart_close_popup() . "\<CR>"
+endfunction
+
+" <TAB>: completion.
+inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+" <C-h>, <BS>: close popup and delete backword char.
+inoremap <expr><C-h> neocomplcache#smart_close_popup()."\<C-h>"
+inoremap <expr><BS> neocomplcache#smart_close_popup()."\<C-h>"
+inoremap <expr><C-y>  neocomplcache#close_popup()
+inoremap <expr><C-e>  neocomplcache#cancel_popup()
+"""""""""""""""""""""
+
+""""""""""""""""""""
+"" color schema
+"""""""""""""""""""
+" solarized
+NeoBundle 'altercation/vim-colors-solarized'
+" mustang
+NeoBundle 'croaker/mustang-vim'
+" jellybeans
+NeoBundle 'nanotech/jellybeans.vim'
+" molokai
+NeoBundle 'tomasr/molokai'
+
+NeoBundle 'Shougo/unite.vim'
+NeoBundle 'ujihisa/unite-colorscheme'
+
+colorscheme koehler
+
+"""""""""""""""""""
+"" source tree
+"""""""""""""""""""
+NeoBundle 'scrooloose/nerdtree'
+let NERDTreeShowHidden = 1
+"autocmd VimEnter * execute 'NERDTree'
+
+"""""""""""""""""""
+"" vim rails
+"""""""""""""""""""
+NeoBundle 'tpope/vim-rails'
+
+"""""""""""""""""""
+"" vim chef
+"""""""""""""""""""
+NeoBundle 'vadv/vim-chef'
