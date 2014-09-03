@@ -30,6 +30,7 @@ set expandtab
 map Y y$
 
 nnoremap <C-L> :nohl<CR><C-L>
+nnoremap <Space>s.  :<C-u>source ~/.vimrc<Return>
 
 if has('vim_starting')
   set runtimepath+=~/.vim/bundle/neobundle.vim/
@@ -110,11 +111,40 @@ let NERDTreeShowHidden = 1
 "autocmd VimEnter * execute 'NERDTree'
 
 """""""""""""""""""
-"" vim rails
+"" vim rails 
 """""""""""""""""""
 NeoBundle 'tpope/vim-rails'
 
 """""""""""""""""""
-"" vim chef
+"" chef
 """""""""""""""""""
-NeoBundle 'vadv/vim-chef'
+NeoBundle 'ryuzee/neocomplcache_php_selenium_snippet'
+let g:neosnippet#snippets_directory='~/.vim/bundle/neosnippet_chef_recipe_snippet/autoload/neosnippet/snippets'
+" let g:neosnippet#snippets_directory='~/.vim/dict/opscode_chef.dict/*.dict'
+" set filetype=ruby.chef
+" load_or remove chef_dict
+" command ChefDictAdd set dictionary+=~/.vim/dict/opscode_chef.dict/*.dict
+" command ChefDictRem set dictionary+=~/.vim/dict/opscode_chef.dict/*.dict
+
+NeoBundle "MarcWeber/vim-addon-mw-utils"
+NeoBundle "tomtom/tlib_vim"
+NeoBundle "garbas/vim-snipmate"
+NeoBundle "vadv/vim-chef"
+NeoBundle 't9md/vim-chef'
+
+nnoremap <silent> <Leader>cf :ChefFindAny<CR>
+nnoremap <silent> <Leader>cs :ChefFindAnySplit<CR>
+nnoremap <silent> <Leader>cv :ChefFindAnyVsplit<CR>
+nnoremap <silent> <Leader>cr :ChefFindAnyRelated<CR>
+nnoremap <silent> <Leader>cds :ChefFindDefinitionSplit<CR>
+nnoremap <silent> <Leader>cdv :ChefFindDefinitionVsplit<CR>
+
+"""""""""""""""""""
+"" snippet 
+"""""""""""""""""""
+NeoBundle 'Shougo/neosnippet'
+" Plugin key-mappings.
+imap <C-k>     <Plug>(neosnippet_expand_or_jump)
+smap <C-k>     <Plug>(neosnippet_expand_or_jump)
+xmap <C-k>     <Plug>(neosnippet_expand_target)
+
