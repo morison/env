@@ -111,7 +111,7 @@ let NERDTreeShowHidden = 1
 "autocmd VimEnter * execute 'NERDTree'
 
 """""""""""""""""""
-"" vim rails 
+"" vim rails
 """""""""""""""""""
 NeoBundle 'tpope/vim-rails'
 
@@ -121,6 +121,7 @@ NeoBundle 'tpope/vim-rails'
 NeoBundle 'ryuzee/neocomplcache_php_selenium_snippet'
 let g:neosnippet#snippets_directory='~/.vim/bundle/neosnippet_chef_recipe_snippet/autoload/neosnippet/snippets'
 " let g:neosnippet#snippets_directory='~/.vim/dict/opscode_chef.dict/*.dict'
+au BufNewFile,BufRead *.rb set filetype=ruby.chef
 " set filetype=ruby.chef
 " load_or remove chef_dict
 " command ChefDictAdd set dictionary+=~/.vim/dict/opscode_chef.dict/*.dict
@@ -140,11 +141,24 @@ nnoremap <silent> <Leader>cds :ChefFindDefinitionSplit<CR>
 nnoremap <silent> <Leader>cdv :ChefFindDefinitionVsplit<CR>
 
 """""""""""""""""""
-"" snippet 
+"" snippet
 """""""""""""""""""
 NeoBundle 'Shougo/neosnippet'
+NeoBundle 'Shougo/neosnippet-snippets'
 " Plugin key-mappings.
 imap <C-k>     <Plug>(neosnippet_expand_or_jump)
 smap <C-k>     <Plug>(neosnippet_expand_or_jump)
 xmap <C-k>     <Plug>(neosnippet_expand_target)
 
+" SuperTab like snippets behavior.
+imap <expr><TAB> neosnippet#expandable_or_jumpable() ?
+\ "\<Plug>(neosnippet_expand_or_jump)"
+\: pumvisible() ? "\<C-n>" : "\<TAB>"
+smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
+\ "\<Plug>(neosnippet_expand_or_jump)"
+\: "\<TAB>"
+
+" For snippet_complete marker.
+if has('conceal')
+  set conceallevel=2 concealcursor=i
+endif
