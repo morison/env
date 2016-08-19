@@ -168,3 +168,6 @@ case ${OSTYPE} in
 esac
 
 # vim:set ft=zsh:
+
+export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
+export LESSCHARSET=utf-8
