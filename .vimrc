@@ -66,15 +66,15 @@ NeoBundle 'altercation/vim-colors-solarized'
 NeoBundle 'scrooloose/nerdtree'
 
 "" vimproc
-NeoBundle 'Shougo/vimproc.vim', {
-\ 'build' : {
-\     'windows' : 'tools\\update-dll-mingw',
-\     'cygwin' : 'make -f make_cygwin.mak',
-\     'mac' : 'make -f make_mac.mak',
-\     'linux' : 'make -f make_mac.mak',
-\     'unix' : 'gmake -f make_mac.mak',
-\    },
-\ }
+"NeoBundle 'Shougo/vimproc.vim', {
+"\ 'build' : {
+"\     'windows' : 'tools\\update-dll-mingw',
+"\     'cygwin' : 'make -f make_cygwin.mak',
+"\     'mac' : 'make -f make_mac.mak',
+"\     'linux' : 'make -f make_mac.mak',
+"\     'unix' : 'gmake -f make_mac.mak',
+"\    },
+"\ }
 
 "" 補完
 if s:meet_neocomplete_requirements()
@@ -189,7 +189,8 @@ set fileformats=unix,dos,mac
 set showcmd
 set shell=/bin/sh
 
-set whichwrap=h,l,b,s,<,>,[,]
+"set whichwrap=h,l,b,s,<,>,[,]
+set whichwrap=b,s,<,>,[,]
 
 "" JSONのダブルクォーテーションを表示する
 let g:vim_json_syntax_conceal = 0
