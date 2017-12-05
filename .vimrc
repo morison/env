@@ -114,7 +114,7 @@ NeoBundle 'hynek/vim-python-pep8-indent'
 NeoBundle 'Yggdroot/indentLine'
 
 "" HTML/CSS
-NeoBundle 'amirh/HTML-AutoCloseTag'
+NeoBundle 'vim-scripts/HTML-AutoCloseTag'
 NeoBundle 'hail2u/vim-css3-syntax'
 NeoBundle 'gorodinskiy/vim-coloresque'
 NeoBundle 'mattn/emmet-vim'
@@ -141,6 +141,13 @@ nnoremap <silent> <leader>cf :ChefFindAny<CR>
 nnoremap <silent> <leader>cs :ChefFindAnySplit<CR>
 nnoremap <silent> <leader>cv :ChefFindAnyVsplit<CR>
 nnoremap <silent> <leader>cr :ChefFindRelated<CR>
+
+"" vim-chef
+NeoBundle "MarcWeber/vim-addon-mw-utils"
+NeoBundle "tomtom/tlib_vim"
+NeoBundle "garbas/vim-snipmate"
+NeoBundle "vadv/vim-chef"
+autocmd FileType ruby,eruby set filetype=ruby.eruby.chef
 
 "" winresizer
 NeoBundle 'simeji/winresizer'
@@ -240,6 +247,8 @@ smap <expr><TAB> neosnippet#expandable_or_jumpable() ? "\<Plug>(neosnippet_expan
 if has('conceal')
 	set conceallevel=2 concealcursor=i
 endif
+let g:neosnippet#enable_snipmate_compatibility = 1
+let g:neosnippet#snippets_directory='~/.vim/bundle/vim-chef/snippets'
 "******************
 
 "******************
