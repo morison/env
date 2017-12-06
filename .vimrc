@@ -136,11 +136,19 @@ NeoBundle 'mustache/vim-mustache-handlebars'
 NeoBundle 'myhere/vim-nodejs-complete'
 
 "" vim-chef
-NeoBundle 't9md/vim-chef'
+"NeoBundle 't9md/vim-chef'
+let vim_chef_easy_jump=expand('~/.vim/bundle/vim-chef-easy-jump/README.md')
+if !filereadable(vim_chef_easy_jump)
+  echo "Installing t9md/vim-chef..."
+  echo ""
+  silent !git clone https://github.com/t9md/vim-chef.git ~/.vim/bundle/vim-chef-easy-jump
+endif
+set runtimepath+=~/.vim/bundle/vim-chef-easy-jump/
 nnoremap <silent> <leader>cf :ChefFindAny<CR>
 nnoremap <silent> <leader>cs :ChefFindAnySplit<CR>
 nnoremap <silent> <leader>cv :ChefFindAnyVsplit<CR>
 nnoremap <silent> <leader>cr :ChefFindRelated<CR>
+nnoremap <silent> <leader>cd :ChefFindDefinition<CR>
 
 "" vim-chef
 NeoBundle "MarcWeber/vim-addon-mw-utils"
