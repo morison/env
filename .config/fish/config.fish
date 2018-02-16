@@ -8,6 +8,7 @@ balias gpll 'git pull'
 balias gpsh 'git push'
 balias ga 'git add'
 balias gl 'git log'
+balias gg 'git graph'
 
 # general
 balias ll 'ls -al'
