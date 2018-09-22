@@ -8,6 +8,12 @@ balias gpll 'git pull'
 balias gpsh 'git push'
 balias ga 'git add'
 balias gl 'git log'
+# alias for docker
+balias dc_i 'docker images'
+balias dc_c 'docker container'
 
 # general
 balias ll 'ls -al'
+
+. (pyenv init - | psub)
+rvm default
