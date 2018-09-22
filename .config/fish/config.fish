@@ -8,6 +8,7 @@ balias gpll 'git pull'
 balias gpsh 'git push'
 balias ga 'git add'
 balias gl 'git log'
+balias gg 'git graph'
 # alias for docker
 balias dc_i 'docker images'
 balias dc_c 'docker container'
