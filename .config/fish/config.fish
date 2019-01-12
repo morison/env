@@ -16,9 +16,7 @@ balias dc_c 'docker container'
 # general
 balias ll 'ls -al'
 
-#. (pyenv init - | psub)
-#rvm default
-
-# powerline plugin
-#set fish_function_path $fish_function_path "/home/naruhito/.local/lib/python2.7/site-packages/powerline/bindings/fish"
-#powerline-setup
+# Load pyenv automatically
+set -x PATH "/home/naruhito/.pyenv/bin" $PATH
+status --is-interactive; and . (pyenv init -|psub)
+status --is-interactive; and . (pyenv virtualenv-init -|psub)
