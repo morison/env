@@ -12,6 +12,7 @@ balias gg 'git graph'
 # alias for docker
 balias dc_i 'docker images'
 balias dc_c 'docker container'
+balias dc_s 'docker service'
 
 # general
 balias ll 'ls -al'
