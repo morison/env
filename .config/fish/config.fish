@@ -19,3 +19,6 @@ balias ll 'ls -al'
 
 . (pyenv init - | psub)
 rvm default
+
+set PATH $HOME/.local/bin $PATH
+set LC_CTYPE 'en_US.UTF-8'
