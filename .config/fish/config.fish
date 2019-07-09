@@ -22,3 +22,10 @@ rvm default
 
 set PATH $HOME/.local/bin $PATH
 set LC_CTYPE 'en_US.UTF-8'
+
+# For compilers to find zlib
+set -gx LDFLAGS "-L/usr/local/opt/zlib/lib"
+set -gx CPPFLAGS "-I/usr/local/opt/zlib/include"
+
+# For pkg-config to find zlib
+set -gx PKG_CONFIG_PATH "/usr/local/opt/zlib/lib/pkgconfig"
