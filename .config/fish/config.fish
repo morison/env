@@ -29,3 +29,12 @@ set -gx CPPFLAGS "-I/usr/local/opt/zlib/include"
 
 # For pkg-config to find zlib
 set -gx PKG_CONFIG_PATH "/usr/local/opt/zlib/lib/pkgconfig"
+
+function kubectl-config
+  set ctx (string split ' ' (kubectl config view -o jsonpath='{.users[*].name}') | peco)
+  kubectl config use-context $ctx
+end
+
+function fish_user_key_bindings
+  bind \cr 'peco_select_history (commandline -b)'
+end
