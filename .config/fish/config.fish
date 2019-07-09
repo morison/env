@@ -22,3 +22,12 @@ rvm default
 
 set PATH $HOME/.local/bin $PATH
 set LC_CTYPE 'en_US.UTF-8'
+
+function kubectl-config
+  set ctx (string split ' ' (kubectl config view -o jsonpath='{.users[*].name}') | peco)
+  kubectl config use-context $ctx
+end
+
+function fish_user_key_bindings
+  bind \cr 'peco_select_history (commandline -b)'
+end
