@@ -23,14 +23,14 @@
 			{
 				"function": "powerline.segments.common.net.hostname"
 			},
-                        {
-                                "function": "powerline.segments.common.net.network_load"
-                        },
+      {
+        "function": "powerline.segments.common.net.network_load"
+      },
 			{
 				"function": "powerline.segments.common.net.internal_ip",
-                                "args": {
-                                    "interface": "en0"
-                                }
+        "args": {
+          "interface": "en0"
+        }
 			},
 			{
 				"function": "powerline.segments.common.net.external_ip"
